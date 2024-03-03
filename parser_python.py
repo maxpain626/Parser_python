@@ -2,22 +2,29 @@ from urllib import request
 
 
 url = "https://www.example.com"
-response = request.urlopen(url)
-html = response.read()
+response = request.urlopen(url).getcode()
+print(response)
 
-soup = BeautifulSoup(html, "html.parser")
 
-# Находим заголовок страницы
-title = soup.title.string
-print("Title of the page:", title)
 
-# Находим все ссылки на странице
-links = soup.find_all("a")
-for link in links:
-    print(link.get("href"))
 
-# Находим текстовое содержимое тега <p>
-paragraphs = soup.find_all("p")
-for paragraph in paragraphs:
-    print(paragraph.text)
-    
+
+'''
+urllib.request.urlopen(): Отправить HTTP-запрос и получить ответ от сервера.
+urllib.request.urlretrieve(): Скачать файл по указанному URL.
+urllib.request.Request(): Создать объект запроса с дополнительными параметрами, такими как заголовки.
+urllib.parse.urlencode(): Преобразовать словарь параметров в строку запроса.
+urllib.error.URLError: Исключение в случае ошибки при выполнении запроса.
+urllib.robotparser.RobotFileParser(): Парсить robots.txt файлы для проверки доступа к ресурсам.
+'''
+
+'''
+Методы, которые предоставляет функция urllib.request.urlopen(), включают следующие:
+
+read(size=None): Чтение данных из ответа. Если аргумент size указан, читает и возвращает указанное количество байтов данных, иначе возвращает все данные.
+readline(size=-1): Чтение строки из ответа. Если указан аргумент size, читает и возвращает строку указанной длины (или меньше), иначе возвращает строку до конца строки.
+readlines(hint=-1): Чтение всех строк из ответа и возвращает их в виде списка. Можно указать максимальное количество байтов для чтения (hint).
+getcode(): Получение HTTP-кода состояния ответа (например, 200 - успешный запрос).
+geturl(): Получение исходного URL, к которому был выполнен запрос (могут быть перенаправления).
+info(): Получение объекта, содержащего заголовки ответа.
+'''
