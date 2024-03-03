@@ -17,4 +17,5 @@ __pycache__/
 .idea/
 .vscode/
 
-/env
+# ya her znaet pochemu on ne udalyaetsya s githuba 
+/env 
