@@ -1,4 +1,8 @@
 import urllib.request as urllib2
+import re
+import zlib
+import os.path
+import hashlib
 
 
 # сайт
@@ -10,8 +14,23 @@ def query_web(url):
     response = urllib2.urlopen(url)
     return print(response.read())
 
+# создание хеша и сохранение в файл
+def cash(url):
+    hash = hashlib.md5(url.encode('utf-8')).hexdigest()
+    fname = "cache/" + hash
+    if not os.path.isfile(fname):
+        content = query_web(url)
+        f = open(fname, "wb")
+        f.write(content)
+        f.close()
+    else:
+        f = open(fname, "rb")
+        content = f.read()
+    return content
+    
 
-query_web(url)
+
+cash(url)
 
 
 '''
