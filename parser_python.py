@@ -11,6 +11,7 @@ url = "https://www.wildberries.ru/catalog/109361831/detail.aspx"
 
 # функция чтобы зайти на сайт
 def query_web(url):
+    req = urllib2.Request(url)
     response = urllib2.urlopen(url)
     return print(response.read())
 
