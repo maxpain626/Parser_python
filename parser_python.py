@@ -1,12 +1,17 @@
-from urllib import request
+import urllib.request as urllib2
 
 
-url = "https://www.example.com"
-response = request.urlopen(url).getcode()
-print(response)
+# сайт
+url = "https://www.wildberries.ru/catalog/109361831/detail.aspx"
 
 
+# функция чтобы зайти на сайт
+def query_web(url):
+    response = urllib2.urlopen(url)
+    return print(response.read())
 
+
+query_web(url)
 
 
 '''
@@ -27,4 +32,28 @@ readlines(hint=-1): Чтение всех строк из ответа и воз
 getcode(): Получение HTTP-кода состояния ответа (например, 200 - успешный запрос).
 geturl(): Получение исходного URL, к которому был выполнен запрос (могут быть перенаправления).
 info(): Получение объекта, содержащего заголовки ответа.
+'''
+
+'''
+Example usage:
+    
+    import urllib.request
+    
+    # set up authentication info
+    authinfo = urllib.request.HTTPBasicAuthHandler()
+    authinfo.add_password(realm='PDQ Application',
+                          uri='https://mahler:8092/site-updates.py',
+                          user='klem',
+                          passwd='geheim$parole')
+    
+    proxy_support = urllib.request.ProxyHandler({"http" : "http://ahad-haam:3128"})
+    
+    # build a new opener that adds authentication and caching FTP handlers
+    opener = urllib.request.build_opener(proxy_support, authinfo,
+                                         urllib.request.CacheFTPHandler)
+    
+    # install it
+    urllib.request.install_opener(opener)
+    
+    f = urllib.request.urlopen('https://www.python.org/')
 '''
