@@ -15,7 +15,7 @@ def query_web(url):
     return print(response.read())
 
 # создание хеша и сохранение в файл
-def cash(url):
+def cache(url):
     hash = hashlib.md5(url.encode('utf-8')).hexdigest()
     fname = "cache/" + hash
     if not os.path.isfile(fname):
@@ -30,7 +30,7 @@ def cash(url):
     
 
 
-cash(url)
+cache(url)
 
 
 '''
