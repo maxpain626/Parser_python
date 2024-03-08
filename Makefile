@@ -4,3 +4,5 @@ run:
 test:
 	curl -s -v https://www.wildberries.ru/catalog/109361831/detail.aspx/ \
 	
+    #curl --output curl.txt https://www.wildberries.ru/catalog/109361831/detail.aspx
+	

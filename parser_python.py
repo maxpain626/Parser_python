@@ -28,7 +28,24 @@ def cache(url):
         f = open(fname, "rb")
         content = f.read()
     return content
-    
+
+def unzip(stream):
+    dec = zlib.decompressobj(32 + zlib.MAX_WBITS) # offset 32 to skip the header
+    return dec.decompress(stream)
+
+def query(url):
+    zip_data = query_web(url)
+    return unzip(zip_data)
+
+def test_wb():
+    url = "https://www.wildberries.ru/catalog/109361831/detail.aspx"
+    content = query(url)
+
+zipped_content = cache("https://www.wildberries.ru/catalog/109361831/detail.aspx")
+content = unzip(zipped_content)
+print(len(zipped_content))
+print(len(content))
+print(content)
 
 
 cache(url)
