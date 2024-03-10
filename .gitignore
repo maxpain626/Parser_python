@@ -19,3 +19,4 @@ __pycache__/
 
 # ya her znaet pochemu on ne udalyaetsya s githuba 
 /env 
+/cache
