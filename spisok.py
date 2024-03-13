@@ -9,8 +9,6 @@ def make_spisok():
 
 #pricelist = [431, 523, 123, 7735, 8845, 24, 63, 6342, 735, 88945, 423, 5378]
 
-
-
 def rand_params():
     length_list = int(input("Insert length of list: "))
     min_list = int(input("Insert min of list: "))
